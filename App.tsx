@@ -433,7 +433,7 @@ const App: React.FC = () => {
                           />
                      </div>
                 
-                    <button onClick={() => setIsSettingsOpen(false)} className={`${btnStyle} w-full py-4 bg-black text-white hover:bg-gray-800 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]`}>
+                    <button onClick={() => setIsSettingsOpen(false)} className={`${btnStyle} w-full py-4 bg-gray text-black hover:bg-white-800 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]`}>
                         SAVE CHANGES
                     </button>
                 </div>

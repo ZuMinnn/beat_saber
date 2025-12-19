@@ -1,8 +1,4 @@
 
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
-*/
 
 import * as THREE from 'three';
 

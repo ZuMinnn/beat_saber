@@ -15,6 +15,7 @@ import { Leaderboard } from './src/components/Leaderboard';
 import { ProfileMenu } from './src/components/ProfileMenu';
 import { preferencesService } from './src/services/preferences.service';
 import { scoreService } from './src/services/score.service';
+import { ErrorBoundary } from './src/components/ErrorBoundary';
 
 const App: React.FC = () => {
     // User authentication
@@ -390,22 +391,26 @@ const App: React.FC = () => {
                 className="hidden"
             />
 
+
+
             {/* 3D Canvas */}
-            <Canvas shadows dpr={[1, 2]}>
-                {gameStatus !== GameStatus.LOADING && (
-                    <GameScene
-                        gameStatus={gameStatus}
-                        audioRef={audioRef}
-                        handPositionsRef={handPositionsRef}
-                        chart={activeChart}
-                        song={selectedSong}
-                        onNoteHit={handleNoteHit}
-                        onNoteMiss={handleNoteMiss}
-                        onSongEnd={() => endGame(true)}
-                        saberConfig={saberConfig}
-                    />
-                )}
-            </Canvas>
+            <ErrorBoundary>
+                <Canvas shadows dpr={[1, 2]}>
+                    {gameStatus !== GameStatus.LOADING && (
+                        <GameScene
+                            gameStatus={gameStatus}
+                            audioRef={audioRef}
+                            handPositionsRef={handPositionsRef}
+                            chart={activeChart}
+                            song={selectedSong}
+                            onNoteHit={handleNoteHit}
+                            onNoteMiss={handleNoteMiss}
+                            onSongEnd={() => endGame(true)}
+                            saberConfig={saberConfig}
+                        />
+                    )}
+                </Canvas>
+            </ErrorBoundary>
 
             {/* Webcam Mini-Map Preview */}
             <WebcamPreview
@@ -630,12 +635,12 @@ const App: React.FC = () => {
                             <div className="mb-12 relative">
                                 <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#FAFF00] rounded-full mix-blend-multiply opacity-50 blur-2xl"></div>
                                 <h1 className="text-8xl md:text-9xl font-black text-white tracking-tighter italic drop-shadow-[8px_8px_0px_#000]">
-                                    RHYTHM
+                                    BEAT
                                     <br />
-                                    <span className="text-[#00F0FF] drop-shadow-[8px_8px_0px_#000] text-stroke-3">SLASHER</span>
+                                    <span className="text-[#00F0FF] drop-shadow-[8px_8px_0px_#000] text-stroke-3">SABER</span>
                                 </h1>
                                 <div className="bg-white border-2 border-black px-4 py-1 absolute top-0 left-86 rotate-12 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hidden md:block">
-                                    <p className="font-bold text-sm text-black">VER 2.0</p>
+                                    <p className="font-bold text-sm text-black"> WEB VER </p>
                                 </div>
                             </div>
 
